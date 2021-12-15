@@ -61,6 +61,21 @@ public class ApplicationController {
     }
     @GetMapping("/404")             public String error(){ return "404"; }
 
+    // ACCOUNTS
+    @GetMapping("/accounts")             public String accounts(){ return "/accounts/index"; }
+
+    // FLEET / VEHICLES
+    @GetMapping("/fleet")             public String fleet(){ return "/fleet/index"; }
+
+    // HELPDESK
+    @GetMapping("/helpdesk")             public String helpdesk(){ return "/helpdesk/index"; }
+
     // HR
     @GetMapping("/hr")             public String hr(){ return "/hr/index"; }
+
+    // PARAMETERS / SETTINGS
+    @GetMapping("/parameters")             public String parameters(){ return "/parameters/index"; }
+
+    // PAYROLL
+    @GetMapping("/payroll")             public String payroll(){ return "/payroll/index"; }
 }
