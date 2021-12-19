@@ -43,7 +43,7 @@ public class ApplicationController {
 
     // TABLES
     @GetMapping("/basic_table")     public String basicTable(){
-        return "basic_table";
+        return "assets/basic_table";
     }
 
     // PAGES
