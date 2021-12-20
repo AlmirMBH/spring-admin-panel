@@ -4,10 +4,7 @@ import com.example.demo.parameters.models.Country;
 import com.example.demo.parameters.services.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 
 import java.util.List;
@@ -36,6 +33,15 @@ public class CountryController {
         countryService.save(country);
         return "redirect:/countries";
     }
+
+    // @DeleteMapping - cannot work in this context as it first invokes 'get' and then 'delete'
+    @RequestMapping(value = "/countries/delete/{id}", method = {RequestMethod.GET, RequestMethod.DELETE})
+    public String deleteCountry(@PathVariable Integer id){
+        countryService.delete(id);
+        return "redirect:/countries";
+    }
+
+
 
 
 
