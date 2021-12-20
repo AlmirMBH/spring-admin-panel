@@ -2,7 +2,6 @@ package com.example.demo.parameters.controllers;
 
 import com.example.demo.parameters.models.Country;
 import com.example.demo.parameters.services.CountryService;
-import nz.net.ultraq.thymeleaf.layoutdialect.models.extensions.IModelExtensions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +22,11 @@ public class CountryController {
         List<Country> countries = countryService.getAll();
         model.addAttribute("countries", countries);
         return "parameters/countryList";
+    }
+
+    @GetMapping("/countryAdd")
+    public String addCountry(){
+        return "parameters/countryAdd";
     }
 
 }
