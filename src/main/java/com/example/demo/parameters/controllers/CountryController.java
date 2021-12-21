@@ -15,6 +15,7 @@ public class CountryController {
     @Autowired
     private CountryService countryService;
 
+
     @GetMapping("/countries")
     // @ResponseBody // if there is no template, return array of json objects
     public String getAll(Model model){
@@ -34,15 +35,24 @@ public class CountryController {
         return "redirect:/countries";
     }
 
+    @GetMapping("/countryEdit/{id}")
+    public String edit(@PathVariable Integer id, Model model){
+        Country country = countryService.getById(id);
+        model.addAttribute("country", country);
+        return "/parameters/countryEdit";
+    }
+
+    @RequestMapping(value = "/countries/update/{id}", method = {RequestMethod.GET, RequestMethod.PUT})
+    public String editCountry(Country country){
+        countryService.save(country);
+        return "redirect:/countries";
+    }
+
     // @DeleteMapping - cannot work in this context as it first invokes 'get' and then 'delete'
-    @RequestMapping(value = "/countries/delete/{id}", method = {RequestMethod.GET, RequestMethod.DELETE})
+    @RequestMapping(value = "/country/delete/{id}", method = {RequestMethod.GET, RequestMethod.DELETE})
     public String deleteCountry(@PathVariable Integer id){
         countryService.delete(id);
         return "redirect:/countries";
     }
-
-
-
-
 
 }

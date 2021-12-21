@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="_layout"
+      xmlns:th="http://www.w3.org/1999/xhtml">
+<body>
+<div layout:fragment="content">
+    <div class="container" style="width:70%; margin:0px auto">
+        <div class="row">
+            <div class="col-lg-12">
+                <form class="form-horizontal " th:action="@{'/countries/update/' + ${country.id}}" method="put">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            Add country
+                        </header>
+                        <div class="panel-body" style="padding-bottom:50px">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Description</label>
+                                <div class="col-sm-6">
+                                    <input id="description" name="description" type="text" th:value="${country.description}" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Capital</label>
+                                <div class="col-sm-6">
+                                    <input id="capital" name="capital" type="text" th:value="${country.capital}" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4"> Nationality</label>
+                                <div class="col-sm-6">
+                                    <input id="nationality" name="nationality" type="text" th:value="${country.nationality}" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Continent</label>
+                                <div class="col-sm-6">
+                                    <input type="text" id="continent" name="continent" th:value="${country.continent}" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Country code</label>
+                                <div class="col-sm-6">
+                                    <input type="text" id="code" name="code" th:value="${country.code}" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="panel">
+                        <div class="panel-body">
+                            <button type="submit" href="/countryEdit" class="btn btn-success" style="float:right; width:85px; margin-left:10px" >Save</button>
+                            <button type="submit" href="/countries" class="btn btn-warning" style="float:right; width:85px">Exit</button>
+                        </div>
+                    </section>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
