@@ -25,7 +25,7 @@ public class CountryController {
     }
 
     @GetMapping("/countryAdd")
-    public String add(){
+    public String addCountry(){
         return "parameters/countryAdd";
     }
 
@@ -53,6 +53,13 @@ public class CountryController {
     public String deleteCountry(@PathVariable Integer id){
         countryService.delete(id);
         return "redirect:/countries";
+    }
+
+    @GetMapping("/countryDetails/{id}")
+    public String detailsCountry(@PathVariable Integer id, Model model){
+        Country country = countryService.getById(id);
+        model.addAttribute("country", country);
+        return "/parameters/countryDetails";
     }
 
 }
