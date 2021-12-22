@@ -23,9 +23,13 @@ public class ApplicationController {
     @GetMapping("/parameters")      public String parameters(){ return "/parameters/index"; }
     // PAYROLL
     @GetMapping("/payroll")         public String payroll(){ return "/payroll/index"; }
+    // REPORTS
+    @GetMapping("/reports")         public String reports(){ return "/reports/index"; }
+    // SECURITY
+    @GetMapping("/security")         public String security(){ return "/security/index"; }
 
 
-    // ASSETS
+    // ASSETS (TEMPLATE RESOURCES)
     // FORMS
     @GetMapping("/form_component")  public String formComponent(){
         return "assets/form_component";

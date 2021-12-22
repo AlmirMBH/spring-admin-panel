@@ -16,7 +16,7 @@ public class CountryController {
     private CountryService countryService;
 
 
-    @GetMapping("/countries")
+    @GetMapping("/parameters/countries")
     // @ResponseBody // if there is no template, return array of json objects
     public String getAll(Model model){
         List<Country> countries = countryService.getAll();
