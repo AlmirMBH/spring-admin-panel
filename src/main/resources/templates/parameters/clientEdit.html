@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="_layout"
+      xmlns:th="http://www.w3.org/1999/xhtml">
+<body>
+<div layout:fragment="content">
+    <div class="container" style="width:70%; margin:0px auto">
+        <div class="row">
+            <div class="col-lg-12">
+                <form class="form-horizontal " th:action="@{'/clients/update/' + ${client.id}}" method="put">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            Edit client
+                        </header>
+                        <div class="panel-body" style="padding-bottom:50px">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Client name</label>
+                                <div class="col-sm-6">
+                                    <input id="name" name="name" type="text" th:value="${client.name}" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Client address</label>
+                                <div class="col-sm-6">
+                                    <input id="address" name="address" type="text" th:value="${client.address}" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Client city</label>
+                                <div class="col-sm-6">
+                                    <input id="city" name="city" type="text" th:value="${client.city}" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Client phone</label>
+                                <div class="col-sm-6">
+                                    <input type="text" id="phone" name="phone" th:value="${client.phone}" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Client mobile</label>
+                                <div class="col-sm-6">
+                                    <input type="text" id="mobile" name="mobile" th:value="${client.mobile}" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Client website</label>
+                                <div class="col-sm-6">
+                                    <input type="text" id="website" name="website" th:value="${client.website}" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Client email</label>
+                                <div class="col-sm-6">
+                                    <input type="text" id="email" name="email" th:value="${client.email}" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="panel">
+                        <div class="panel-body">
+                            <button type="submit" class="btn btn-success" style="float:right; width:85px; margin-left:10px">Save</button>
+                            <a href="/clients" class="btn btn-warning" style="float:right; width:85px">Exit</a>
+                        </div>
+                    </section>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
-
 import java.util.List;
 
 @Controller
@@ -15,13 +14,12 @@ public class CountryController {
     @Autowired
     private CountryService countryService;
 
-
-    @GetMapping("/parameters/countries")
+    @GetMapping("/countries")
     // @ResponseBody // if there is no template, return array of json objects
-    public String getAll(Model model){
-        List<Country> countries = countryService.getAll();
+    public String findAll(Model model){
+        List<Country> countries = countryService.findAll();
         model.addAttribute("countries", countries);
-        return "parameters/countryList";
+        return "parameters/countries";
     }
 
     @GetMapping("/countryAdd")
@@ -37,7 +35,7 @@ public class CountryController {
 
     @GetMapping("/countryEdit/{id}")
     public String edit(@PathVariable Integer id, Model model){
-        Country country = countryService.getById(id);
+        Country country = countryService.findById(id);
         model.addAttribute("country", country);
         return "/parameters/countryEdit";
     }
@@ -57,7 +55,7 @@ public class CountryController {
 
     @GetMapping("/countryDetails/{id}")
     public String detailsCountry(@PathVariable Integer id, Model model){
-        Country country = countryService.getById(id);
+        Country country = countryService.findById(id);
         model.addAttribute("country", country);
         return "/parameters/countryDetails";
     }

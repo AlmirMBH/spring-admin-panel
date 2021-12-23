@@ -9,37 +9,43 @@
                 <form class="form-horizontal" method="put">
                     <section class="panel">
                         <header class="panel-heading">
-                            Country details
+                            Contact details
                         </header>
                         <div class="panel-body" style="padding-bottom:50px">
                             <div class="form-group">
-                                <label class="control-label col-sm-4">Description</label>
+                                <label class="control-label col-sm-4">Contact first name</label>
                                 <div class="col-sm-6">
-                                    <input id="description" name="description" type="text" th:value="${country.description}" readonly class="form-control">
+                                    <input id="firstname" name="firstname" type="text" th:value="${contact.firstname}" readonly class="form-control">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-sm-4">Capital</label>
+                                <label class="control-label col-sm-4">Contact last name</label>
                                 <div class="col-sm-6">
-                                    <input id="capital" name="capital" type="text" th:value="${country.capital}" readonly class="form-control">
+                                    <input id="lastname" name="lastname" type="text" th:value="${contact.lastname}" readonly class="form-control">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-sm-4"> Nationality</label>
+                                <label class="control-label col-sm-4">Contact phone</label>
                                 <div class="col-sm-6">
-                                    <input id="nationality" name="nationality" type="text" th:value="${country.nationality}" readonly class="form-control" />
+                                    <input id="phone" name="phone" type="text" th:value="${contact.phone}" readonly class="form-control">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-sm-4">Continent</label>
+                                <label class="control-label col-sm-4">Contact mobile</label>
                                 <div class="col-sm-6">
-                                    <input type="text" id="continent" name="continent" th:value="${country.continent}" readonly class="form-control">
+                                    <input id="mobile" name="mobile" type="text" th:value="${contact.mobile}" readonly class="form-control">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-sm-4">Country code</label>
+                                <label class="control-label col-sm-4">Contact email</label>
                                 <div class="col-sm-6">
-                                    <input type="text" id="code" name="code" th:value="${country.code}" readonly class="form-control">
+                                    <input id="email" name="email" type="text" th:value="${contact.email}" readonly class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Contact remarks</label>
+                                <div class="col-sm-6">
+                                    <input id="remarks" name="remarks" type="text" th:value="${contact.remarks}" readonly class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -47,7 +53,7 @@
                     <section class="panel">
                         <div class="panel-body">
                             <button type="submit" disabled class="btn btn-success" style="float:right; width:85px; margin-left:10px">Save</button>
-                            <a href="/countries" class="btn btn-warning" style="float:right; width:85px">Exit</a>
+                            <a href="/contacts" class="btn btn-warning" style="float:right; width:85px">Exit</a>
                         </div>
                     </section>
                 </form>
