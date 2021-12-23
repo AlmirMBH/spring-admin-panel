@@ -7,6 +7,5 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class DepartmentController {
 
-    @Autowired
-    private DepartmentService departmentService;
+    @Autowired private DepartmentService departmentService;
 }

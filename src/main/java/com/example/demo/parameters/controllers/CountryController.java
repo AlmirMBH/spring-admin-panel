@@ -11,8 +11,7 @@ import java.util.List;
 @Controller
 public class CountryController {
 
-    @Autowired
-    private CountryService countryService;
+    @Autowired private CountryService countryService;
 
     @GetMapping("/countries")
     // @ResponseBody // if there is no template, return array of json objects

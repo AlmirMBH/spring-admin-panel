@@ -12,8 +12,7 @@ import java.util.List;
 @Controller
 public class LocationController {
 
-    @Autowired
-    private LocationService locationService;
+    @Autowired private LocationService locationService;
 
     @GetMapping("/locations")
     public String findAll(Model model){

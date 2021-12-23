@@ -12,8 +12,7 @@ import java.util.List;
 @Controller
 public class ContactController {
 
-    @Autowired
-    private ContactService contactService;
+    @Autowired private ContactService contactService;
 
     @GetMapping("/contacts")
     public String findAll(Model model){

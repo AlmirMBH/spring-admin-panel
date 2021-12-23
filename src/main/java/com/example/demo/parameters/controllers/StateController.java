@@ -1,61 +1,62 @@
 package com.example.demo.parameters.controllers;
 
 import com.example.demo.parameters.models.State;
+import com.example.demo.parameters.services.CountryService;
 import com.example.demo.parameters.services.StateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @Controller
 public class StateController {
 
     @Autowired private StateService stateService;
+    @Autowired private CountryService countryService;
 
-    @GetMapping("/states")
+    //Retrieve states
+    @GetMapping("/parameters/states")
     public String findAll(Model model){
-        List<State> states = stateService.findAll();
-        model.addAttribute("states", states);
-        return "parameters/states";
+        addModelAttribute(model);
+        return "/parameters/states";
     }
 
-    @GetMapping("/stateAdd")
-    public String addState(){
+
+    //Add state
+    @GetMapping("/parameters/stateAdd")
+    public String addState(Model model){
+        addModelAttribute(model);
         return "parameters/stateAdd";
     }
 
-    @PostMapping("/states")
-    public String saveState(State state){
+    @PostMapping(value="/parameters/states")
+    public String addNew(State state) {
         stateService.save(state);
-        return "redirect:/states";
+        return "redirect:/parameters/states";
     }
 
-    @GetMapping("/stateEdit/{id}")
-    public String edit(@PathVariable Integer id, Model model){
-        State state = stateService.findById(id);
-        model.addAttribute("state", state);
-        return "/parameters/stateEdit";
+
+    // Edit state and state detail
+    @GetMapping("/parameters/state/{operation}/{id}")
+    public String editState(@PathVariable Integer id, @PathVariable String operation, Model model){
+        addModelAttribute(model);
+        model.addAttribute("state", stateService.findById(id));
+        return "/parameters/state" + operation;
     }
 
-    @RequestMapping(value = "/states/update/{id}", method = {RequestMethod.GET, RequestMethod.PUT})
-    public String editState(State state){
-        stateService.save(state);
-        return "redirect:/states";
-    }
 
-    // @DeleteMapping - cannot work in this context as it first invokes 'get' and then 'delete'
-    @RequestMapping(value = "/state/delete/{id}", method = {RequestMethod.GET, RequestMethod.DELETE})
-    public String deleteState(@PathVariable Integer id){
+    // Delete state
+    @RequestMapping(value="/parameters/states/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
+    public String delete(@PathVariable Integer id) {
         stateService.delete(id);
-        return "redirect:/states";
+        return "redirect:/parameters/states";
     }
 
-    @GetMapping("/stateDetails/{id}")
-    public String detailsState(@PathVariable Integer id, Model model){
-        State state = stateService.findById(id);
-        model.addAttribute("state", state);
-        return "/parameters/stateDetails";
+
+    // Add attributes via method
+    public  Model addModelAttribute(Model model){
+        model.addAttribute("states", stateService.findAll());
+        model.addAttribute("countries", countryService.findAll());
+        return model;
     }
 }

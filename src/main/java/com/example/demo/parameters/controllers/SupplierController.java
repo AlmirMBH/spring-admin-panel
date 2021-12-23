@@ -11,8 +11,7 @@ import java.util.List;
 @Controller
 public class SupplierController {
 
-    @Autowired
-    private SupplierService supplierService;
+    @Autowired private SupplierService supplierService;
 
     @GetMapping("/suppliers")
     public String findAll(Model model){

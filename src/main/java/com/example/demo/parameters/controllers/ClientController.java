@@ -12,8 +12,7 @@ import java.util.List;
 @Controller
 public class ClientController {
 
-    @Autowired
-    private ClientService clientService;
+    @Autowired private ClientService clientService;
 
     @GetMapping("/clients")
     public String findAll(Model model){

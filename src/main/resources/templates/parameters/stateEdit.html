@@ -6,12 +6,23 @@
     <div class="container" style="width:70%; margin:0px auto">
         <div class="row">
             <div class="col-lg-12">
-                <form class="form-horizontal " th:action="@{'/states/update/' + ${state.id}}" method="put">
+                <form class="form-horizontal " th:action="@{/parameters/states}" method="post">
                     <section class="panel">
                         <header class="panel-heading">
                             Edit state
                         </header>
                         <div class="panel-body" style="padding-bottom:50px">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Country name</label>
+                                <div class="col-sm-6">
+                                    <select class="form-control" id="ddlCountryAdd" name="countryid">
+                                        <option th:each="country : ${countries}"
+                                                th:value="${country.id}"
+                                                th:selected="${country.id}==${state.countryid} ? true : false"
+                                                th:text="${country.description}"></option>
+                                    </select>
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-4">State name</label>
                                 <div class="col-sm-6">
@@ -41,7 +52,7 @@
                     <section class="panel">
                         <div class="panel-body">
                             <button type="submit" class="btn btn-success" style="float:right; width:85px; margin-left:10px">Save</button>
-                            <a href="/states" class="btn btn-warning" style="float:right; width:85px">Exit</a>
+                            <a href="/parameters/states" class="btn btn-warning" style="float:right; width:85px">Exit</a>
                         </div>
                     </section>
                 </form>

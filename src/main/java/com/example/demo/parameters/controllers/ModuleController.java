@@ -7,6 +7,5 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class ModuleController {
 
-    @Autowired
-    private ModuleService moduleService;
+    @Autowired private ModuleService moduleService;
 }
